@@ -66,4 +66,4 @@ view model =
 currentTrick :  String -> Html Msg
 currentTrick trick = h2 [] [text trick]
 
-submitButton = div [] [ button [id "trix", onClick New ] [ text "RIP IT 'N' SNIFF IT"]]
+submitButton = div [] [ button [id "trix", onClick New ] [ text "RIP IT 'N' SNIFF IT 👏"]]
