@@ -24,13 +24,11 @@ type alias Model =
     current : String
   }
 
-trixList = ["trix1", "trix2", "trix3", "trix4", "trix5"]
 
-
-init : () -> (Model, Cmd Msg)
-init _ = 
-  (Model trixList "👉" "kiss"
-  , Random.generate NewTrix (randomTrickGenerator trixList))
+init : List String -> (Model, Cmd Msg)
+init trix = 
+  (Model trix "👉" "kiss"
+  , Random.generate NewTrix (randomTrickGenerator trix))
 
 -- UPDATE
 
@@ -49,11 +47,6 @@ randomTrickGenerator : List String -> Random.Generator String
 randomTrickGenerator array = 
   Random.Extra.sample array
   |> Random.map (Maybe.withDefault("FEL"))
-
-
-randomNum : Int -> Int -> Random.Generator Int
-randomNum min max = Random.int min max
-
 
 -- SUBSCRIPTIONS
 
