@@ -58,12 +58,12 @@ subscriptions model =
 
 view: Model -> Html Msg
 view model =
-  div []
+  div [class "mainContent", class "content"]
     [ currentTrick model.current
       , submitButton 
     ]
 
 currentTrick :  String -> Html Msg
-currentTrick trick = div [] [text trick]
+currentTrick trick = h2 [] [text trick]
 
-submitButton = div [] [ button [onClick New ] [ text "RIP IT 'N' SNIFF IT"]]
+submitButton = div [] [ button [id "trix", onClick New ] [ text "RIP IT 'N' SNIFF IT"]]
