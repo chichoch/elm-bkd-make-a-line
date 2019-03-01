@@ -1,4 +1,4 @@
-var trix = [
+export const trix = [
      'Shuvit',
      '5050',
      '180 NoComply',
