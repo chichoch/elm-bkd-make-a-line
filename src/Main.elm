@@ -26,7 +26,7 @@ type alias Model =
 
 init : List String -> (Model, Cmd Msg)
 init trix = 
-  (Model trix "kiss"
+  (Model trix ""
   , Random.generate NewTrix (lineGenerator trix))
 
 -- UPDATE
@@ -49,7 +49,6 @@ lineGenerator list =
 
 listToString : Generator (List String) -> Generator String
 listToString list = Random.map (\l -> String.join " 👉 " l) list
-
 
 randomTrickGenerator : List String -> Random.Generator String
 randomTrickGenerator array = 

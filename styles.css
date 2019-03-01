@@ -63,6 +63,8 @@ button:focus {
 
 h2 {
     line-height: 1.7;
+    font-size: 30px;
+    font-weight: normal;
 }
 
 @media (max-width: 420px) {
@@ -99,6 +101,7 @@ h2 {
     height: 100px;
     padding: 0 50px;
     border-style: none;
+    font-style: italic;
     font-weight: bolder;
     text-transform: uppercase;
 }
