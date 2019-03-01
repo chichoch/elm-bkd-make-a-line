@@ -5,6 +5,7 @@ import Html.Events exposing (onInput, onClick)
 import Random exposing (Generator)
 import Random.Extra exposing (sample)
 import Array exposing (..)
+import String
 
 -- MAIN 
 main =
@@ -20,15 +21,13 @@ main =
 type alias Model = 
   {
     trix : List String,
-    separator : String,
     current : String
   }
 
-
 init : List String -> (Model, Cmd Msg)
 init trix = 
-  (Model trix "👉" "kiss"
-  , Random.generate NewTrix (randomTrickGenerator trix))
+  (Model trix "kiss"
+  , Random.generate NewTrix (lineGenerator trix))
 
 -- UPDATE
 
@@ -39,9 +38,18 @@ type Msg = New
 update: Msg -> Model -> (Model, Cmd Msg)
 update msg model = 
   case msg of
-    New -> ( model, Random.generate NewTrix (randomTrickGenerator model.trix)) 
+    New -> ( model, Random.generate NewTrix (lineGenerator model.trix)) 
     NewTrix trix ->  
       ({model | current = trix}, Cmd.none)
+
+lineGenerator : List String -> Generator String
+lineGenerator list = 
+  Random.int 3 5
+   |> Random.andThen (\len -> listToString (Random.list len (randomTrickGenerator list)))
+
+listToString : Generator (List String) -> Generator String
+listToString list = Random.map (\l -> String.join " 👉 " l) list
+
 
 randomTrickGenerator : List String -> Random.Generator String
 randomTrickGenerator array = 
