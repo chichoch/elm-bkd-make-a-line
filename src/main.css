@@ -28,7 +28,7 @@ tr.footer {
 }
 
 main {
-  width: 100%
+  width: 100%;
 }
 
 .center {
@@ -39,7 +39,6 @@ main {
   color: red;
   cursor: pointer;
 }
-
 
 /* Sticky footer styles
 -------------------------------------------------- */
@@ -53,6 +52,7 @@ body {
   /* Margin bottom by footer height */
   /*margin-bottom: 60px;*/
   position: relative;
+  background-color: #f5f5f5;
 }
 
 .footer {
@@ -79,10 +79,9 @@ h2 {
 
 @media (max-width: 420px) {
   h2 {
-      font-size: 20px;
+    font-size: 20px;
   }
 }
-
 
 /* Content specific styles
 -------------------------------------------------- */
